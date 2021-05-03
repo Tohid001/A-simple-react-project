@@ -1,5 +1,5 @@
 import React from "react";
-import Context from "../Context/context";
+import { userContext } from "../Context/context";
 
 export default class AddItems extends React.Component {
   state = { selectValue: "Chose books..." };
@@ -48,4 +48,4 @@ export default class AddItems extends React.Component {
   }
 }
 
-AddItems.contextType = Context;
+AddItems.contextType = userContext;
