@@ -59,6 +59,9 @@ export default class App extends Component {
     });
     this.setState({ dummyBooks: newBooks });
   };
+  handleReset = () => {
+    this.setState({ dummyBooks: null });
+  };
   render() {
     return (
       <Context.Provider
@@ -66,6 +69,7 @@ export default class App extends Component {
           ...this.state,
           handleState: this.handleState.bind(this),
           handleDummy: this.handleDummy.bind(this),
+          handleReset: this.handleReset.bind(this),
         }}
       >
         <Books />

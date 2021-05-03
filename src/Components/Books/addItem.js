@@ -15,7 +15,7 @@ export default class AddItems extends React.Component {
 
   render() {
     const { selectValue } = this.state;
-    const { books, dummyBooks } = this.context;
+    const { books, handleReset } = this.context;
     return (
       <div className="d-flex justify-content-center mb-3">
         <nav className="navbar p-0 navbar-light bg-light">
@@ -35,6 +35,12 @@ export default class AddItems extends React.Component {
             onClick={this.handleAddItems}
           >
             Add to list
+          </button>
+          <button
+            className="btn btn-outline-primary my-2 my-sm-0"
+            onClick={handleReset}
+          >
+            Reset
           </button>
         </nav>
       </div>

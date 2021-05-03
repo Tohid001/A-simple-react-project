@@ -4,7 +4,7 @@ import ItemList from "./itemList";
 
 export default function Books() {
   return (
-    <div className="container" style={{ padding: "0" }}>
+    <div className="container-fluid" style={{ padding: "0" }}>
       <div className="card" style={{ width: "60%", margin: "auto" }}>
         <h5 className="card-title text-center">
           <i class="fas fa-book mr-2"></i>Booklist
