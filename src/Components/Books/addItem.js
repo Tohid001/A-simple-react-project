@@ -13,9 +13,14 @@ export default class AddItems extends React.Component {
     }
   };
 
+  handleReset = () => {
+    this.setState({ selectValue: "Chose books..." });
+    this.context.handleReset();
+  };
+
   render() {
     const { selectValue } = this.state;
-    const { books, handleReset } = this.context;
+    const { books } = this.context;
     return (
       <div className="d-flex justify-content-center mb-3">
         <nav className="navbar p-0 navbar-light bg-light">
@@ -38,7 +43,7 @@ export default class AddItems extends React.Component {
           </button>
           <button
             className="btn btn-outline-primary my-2 my-sm-0"
-            onClick={handleReset}
+            onClick={this.handleReset}
           >
             Reset
           </button>
