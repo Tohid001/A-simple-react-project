@@ -1,9 +1,9 @@
 import React from "react";
-import { userConsumer } from "../Context/context";
+import { UserConsumer } from "../Context/context";
 
 export default function ItemList() {
   return (
-    <userConsumer>
+    <UserConsumer>
       {({ dummyBooks, handleState }) => {
         if (!dummyBooks) {
           return null;
@@ -37,6 +37,6 @@ export default function ItemList() {
           );
         });
       }}
-    </userConsumer>
+    </UserConsumer>
   );
 }

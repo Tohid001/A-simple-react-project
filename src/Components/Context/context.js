@@ -4,7 +4,7 @@ import React, { createContext } from "react";
 let Context = null;
 const { Provider, Consumer } = (Context = createContext());
 
-class userProvider extends React.Component {
+class UserProvider extends React.Component {
   state = {
     books: [
       {
@@ -79,4 +79,4 @@ class userProvider extends React.Component {
     );
   }
 }
-export { userProvider, Consumer as userConsumer, Context as userContext };
+export { UserProvider, Consumer as UserConsumer, Context as UserContext };

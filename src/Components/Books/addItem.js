@@ -1,5 +1,5 @@
 import React from "react";
-import { userContext } from "../Context/context";
+import { UserContext, UserConsumer } from "../Context/context";
 
 export default class AddItems extends React.Component {
   state = { selectValue: "Chose books..." };
@@ -15,37 +15,43 @@ export default class AddItems extends React.Component {
 
   render() {
     const { selectValue } = this.state;
-    const { books, handleReset } = this.context;
+    // const { books, handleReset } = this.context;
     return (
-      <div className="d-flex justify-content-center mb-3">
-        <nav className="navbar p-0 navbar-light bg-light">
-          <select
-            class="form-control d-inline-block mr-sm-2 custom-select"
-            style={{ width: "auto" }}
-            value={selectValue}
-            onChange={this.handleChange}
-          >
-            <option>Chose books...</option>
-            {books.map((book) => {
-              return <option>{book.name}</option>;
-            })}
-          </select>
-          <button
-            className="btn btn-outline-success my-2 my-sm-0"
-            onClick={this.handleAddItems}
-          >
-            Add to list
-          </button>
-          <button
-            className="btn btn-outline-primary my-2 my-sm-0"
-            onClick={handleReset}
-          >
-            Reset
-          </button>
-        </nav>
-      </div>
+      <UserConsumer>
+        {({ books, handleReset }) => {
+          return (
+            <div className="d-flex justify-content-center mb-3">
+              <nav className="navbar p-0 navbar-light bg-light">
+                <select
+                  class="form-control d-inline-block mr-sm-2 custom-select"
+                  style={{ width: "auto" }}
+                  value={selectValue}
+                  onChange={this.handleChange}
+                >
+                  <option>Chose books...</option>
+                  {books.map((book) => {
+                    return <option>{book.name}</option>;
+                  })}
+                </select>
+                <button
+                  className="btn btn-outline-success my-2 my-sm-0"
+                  onClick={this.handleAddItems}
+                >
+                  Add to list
+                </button>
+                <button
+                  className="btn btn-outline-primary my-2 my-sm-0"
+                  onClick={handleReset}
+                >
+                  Reset
+                </button>
+              </nav>
+            </div>
+          );
+        }}
+      </UserConsumer>
     );
   }
 }
 
-AddItems.contextType = userContext;
+AddItems.contextType = UserContext;
